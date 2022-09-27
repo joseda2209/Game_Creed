@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  gameCreed_BD:
+    image: postgres:14.5-bullseye
+    container_name: postgres_gameCreed
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./temp/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=gameCreed
+      - POSTGRES_USER=gameCreed_admin
+      - POSTGRES_PASSWORD=gameCreedDBPass
