@@ -1,5 +1,6 @@
 const { Router } = require('express')
 
+const {router: authRouter} = require('./auth/auth.routes')
 
 const {logger} = require('../../utils')
 
@@ -13,6 +14,8 @@ router.get('/status', (req, res) => {
     logger.error('entro a status')
   
   })
+
+router.use('/', authRouter)
 
   module.exports = {
     router

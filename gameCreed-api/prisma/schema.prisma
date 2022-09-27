@@ -45,4 +45,10 @@ model Rol {
   User User[]
 }
 
-
+model AuthorizorToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  token     String   @db.VarChar(1000)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at")
+}
